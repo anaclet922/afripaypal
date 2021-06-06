@@ -100,6 +100,75 @@ export const styles = StyleSheet.create({
 
   loginText: {
     color: "#FFFFFF"
+  },
+  HomeContainer: {
+    backgroundColor: "#FFFFFF"
+  }, 
+  HomeChild: {
+    backgroundColor: "#114DA7", 
+    width: "100%", 
+    borderBottomRightRadius: "25px"
+  }, 
+  FlexRow:{
+    flexDirection: "row"
+  }, 
+  logoImg: {
+    width: "30px", 
+    height: "40px",
+     marginRight: "25px", 
+     marginTop: "25px", 
+     marginLeft: "25px", 
+     marginBottom: "5px"
+  }, 
+  greeting: {
+    marginLeft: "25px", 
+    color: "#FFFFFF", 
+    fontSize: "17px", 
+    opacity: 0.5
+  },
+  balance: {
+    color: "#FFFFFF", 
+    fontSize: "20px", 
+    marginLeft: "25px", 
+    marginTop: "25px", 
+    fontWeight: "700"
+  },
+  balancetxt:{
+    color:"#FFFFFF", marginLeft: "25px", marginBottom: "25px"
+  },
+  profileimg:{
+    width: "40px", 
+    height: "40px", 
+    borderRadius: "50%", 
+    marginTop: "25px"
+  },
+  sendC:{
+    backgroundColor: "#114DA7", 
+    paddingLeft: "10px",  
+    paddingRight:"10px", 
+    borderRadius: "10px", 
+    width: "70px",
+    paddingTop: "25px", 
+    paddingBottom: "25px" 
+  },
+  requestC:{
+    backgroundColor: "#FFFFFF", 
+    paddingLeft: "10px",  
+    paddingRight:"10px", 
+    borderRadius: "10px", 
+    width: "70px",
+    paddingTop: "25px", 
+    marginLeft: "13px",
+    paddingBottom: "25px"
+  },
+  requestCTxt:{
+    color: "#114DA7", fontSize: "12px"
+  },
+  sendCTxt:{
+    color: "#FFFFFF", fontSize: "12px"
+  },
+  moneyTRow:{
+    flexDirection: "row", padding: "25px"
   }
 });  
 
@@ -117,6 +186,7 @@ const Item = ({ title, subtitle, time, color, myicon }) => (
     <Text style={{ color: color, flex: 0.2}}>{subtitle}</Text>
   </View>
 );
+
 const LoginSreen = ({ navigation }) => {   
       return (  
         <View style={styles.container}>
@@ -166,53 +236,36 @@ const LoginSreen = ({ navigation }) => {
 class HomeScreen extends React.Component {  
   render() {  
       return (  
-          <View style={{ backgroundColor: "#FFFFFF" }}> 
+          <View style={ styles.HomeContainer }> 
                
-               <View style={{ backgroundColor: "#114DA7", width: "100%", borderBottomRightRadius: "25px"  }}>   
-                  <View style={{ flexDirection: "row"}} >             
+               <View style={ styles.HomeChild }>   
+                  <View style={ styles.FlexRow } >             
                       <View style={{ flex: 0.8 }}>
-                        <Image style={{ width: "30px", height: "40px", marginRight: "25px", marginTop: "25px", marginLeft: "25px", marginBottom: "5px" }} source={require("./assets/logo.png")} /> 
-                        <Text style={{ marginLeft: "25px", color: "#FFFFFF", fontSize: "17px", opacity: 0.5}}>
+                        <Image style={ styles.logoImg } source={require("./assets/logo.png")} /> 
+                        <Text style={ styles.greeting }>
                            Hello Anaclet!
                         </Text> 
-                        <Text style={{ color: "#FFFFFF", fontSize: "20px", marginLeft: "25px", marginTop: "25px", fontWeight: "700" }}>
+                        <Text style={ styles.balance }>
                             $2,544.87
                         </Text>      
-                        <Text style={{ color:"#FFFFFF", marginLeft: "25px", marginBottom: "25px" }}>
+                        <Text style={ styles.balancetxt }>
                            Your balance
                         </Text>          
                       </View>
                       <View style={{ flex: 0.2 }}>                        
-                        <Image style={{ 
-                                  width: "40px", 
-                                  height: "40px", 
-                                  borderRadius: "50%", 
-                                  marginTop: "25px",}} source={require("./assets/avatar.png")} />
+                        <Image style={ styles.profileimg } source={require("./assets/avatar.png")} />
                       </View>
                   </View>  
                </View>
 
-               <View style={{ flexDirection: "row", padding: "25px" }}>
-                    <View style={{ backgroundColor: "#114DA7", 
-                                  paddingLeft: "10px",  
-                                  paddingRight:"10px", 
-                                  borderRadius: "10px", 
-                                  width: "70px",
-                                  paddingTop: "25px", 
-                                  paddingBottom: "25px"  }}>
-                        <Text style={{ color: "#FFFFFF", fontSize: "12px" }}>
+               <View style={ styles.moneyTRow }>
+                    <View style={ styles.sendC }>
+                        <Text style={ styles.sendCTxt }>
                             Send Money
                         </Text>
                     </View>
-                    <View style={{ backgroundColor: "#FFFFFF", 
-                                  paddingLeft: "10px",  
-                                  paddingRight:"10px", 
-                                  borderRadius: "10px", 
-                                  width: "70px",
-                                  paddingTop: "25px", 
-                                  marginLeft: "13px",
-                                  paddingBottom: "25px"  }}>
-                        <Text style={{ color: "#114DA7", fontSize: "12px" }}>
+                    <View style={ styles.requestC }>
+                        <Text style={ styles.requestCTxt }>
                             Send Money
                         </Text>
                     </View>
@@ -243,7 +296,7 @@ export default class App extends React.Component {
           <Stack.Screen
             name="Login"
             component={LoginSreen}
-          />
+           />
           <Stack.Screen name="Home" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
